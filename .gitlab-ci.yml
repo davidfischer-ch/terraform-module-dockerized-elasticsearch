@@ -1,0 +1,6 @@
+---
+include:
+  - project: family/infrastructure/pipelines/development-pipelines
+    file: pipelines/terraform/module.yml
+    ref: main
+...
