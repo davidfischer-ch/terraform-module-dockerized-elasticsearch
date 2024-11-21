@@ -37,10 +37,16 @@ resource "docker_container" "server" {
     hard = -1
   }
 
-  # Data
+  # Data owner 1000:1000
   volumes {
     container_path = local.container_data_directory
     host_path      = local.host_data_directory
     read_only      = false
+  }
+
+  provisioner "local-exec" {
+    command = <<EOT
+      chown 1000:1000 "${local.host_data_directory}"
+    EOT
   }
 }
