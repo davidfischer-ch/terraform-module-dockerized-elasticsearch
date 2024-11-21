@@ -23,6 +23,11 @@ variable "image_id" {
   description = "Memcached image's ID."
 }
 
+variable "data_directory" {
+  type        = string
+  description = "Where data will be persisted (volumes will be mounted as sub-directories)."
+}
+
 # Configuration ------------------------------------------------------------------------------------
 
 variable "env" {
