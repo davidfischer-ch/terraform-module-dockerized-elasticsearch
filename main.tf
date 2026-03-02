@@ -31,13 +31,14 @@ resource "docker_container" "server" {
     name    = var.network_id
   }
 
+  network_mode = "bridge"
+
   ulimit {
     name = "memlock"
     soft = -1
     hard = -1
   }
 
-  # Data owner 1000:1000
   volumes {
     container_path = local.container_data_directory
     host_path      = local.host_data_directory
@@ -46,7 +47,7 @@ resource "docker_container" "server" {
 
   provisioner "local-exec" {
     command = <<EOT
-      chown 1000:1000 "${local.host_data_directory}"
+      chown ${var.data_owner} "${local.host_data_directory}"
     EOT
   }
 }
