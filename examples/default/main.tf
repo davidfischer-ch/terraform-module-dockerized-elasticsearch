@@ -1,0 +1,30 @@
+resource "docker_image" "elasticsearch" {
+  name         = "elasticsearch:8.15.4"
+  keep_locally = true
+}
+
+resource "docker_network" "app" {
+  name   = "my-app"
+  driver = "bridge"
+}
+
+module "elasticsearch" {
+  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-elasticsearch.git?ref=1.0.1"
+
+  identifier     = "my-app-search"
+  enabled        = true
+  image_id       = docker_image.elasticsearch.image_id
+  data_directory = "/data/my-app/search"
+
+  memory = 4096
+
+  env = {
+    "discovery.type"         = "single-node"
+    "bootstrap.memory_lock"  = "true"
+    "xpack.security.enabled" = "false"
+    "ES_JAVA_OPTS"           = "-Xms2g -Xmx2g"
+  }
+
+  network_id      = docker_network.app.id
+  network_aliases = ["elasticsearch"]
+}
