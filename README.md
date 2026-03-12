@@ -52,8 +52,12 @@ data_directory/
 | `enabled` | `bool` | — | Start or stop the container. |
 | `wait` | `bool` | `false` | Wait for the container to reach a healthy state after creation. |
 | `image_id` | `string` | — | [Elasticsearch](https://hub.docker.com/_/elasticsearch/tags) Docker image's ID. |
+| `app_uid` | `number` | `1000` | UID of the user running the container and owning the data directories. |
+| `app_gid` | `number` | `1000` | GID of the user running the container and owning the data directories. |
+| `privileged` | `bool` | `false` | Run the container in privileged mode. |
+| `cap_add` | `set(string)` | `[]` | Linux capabilities to add to the container. |
+| `cap_drop` | `set(string)` | `[]` | Linux capabilities to drop from the container. |
 | `data_directory` | `string` | — | Host path for persistent volumes. |
-| `data_owner` | `string` | `"1000:1000"` | UID:GID for data directories. |
 | `env` | `map(string)` | `{}` | Environment variables for configuring the instance. |
 | `memory` | `number` | — | Memory limit for the container in MBs. |
 | `hosts` | `map(string)` | `{}` | Extra `/etc/hosts` entries for the container. |
