@@ -1,5 +1,18 @@
 # Changelog
 
+## Release v1.1.0 (2026-03-13)
+
+### Breaking changes
+
+* Replace `data_owner` by `app_uid`, `app_gid` with the same default values of `1000`
+
+### Fix and enhancements
+
+* Add `# Process` section: `app_uid`, `app_gid`, `privileged`, `cap_add`, `cap_drop`
+  variables wired into the container via `user`, `privileged`, and a dynamic `capabilities` block
+* Rewrite README with usage example, data layout, variables/outputs tables, requirements
+* Add `examples/default/` Terraform example
+
 ## Release v1.0.1 (2026-03-02)
 
 ### Features
