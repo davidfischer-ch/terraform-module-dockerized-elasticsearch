@@ -13,7 +13,7 @@ See [examples/default](examples/default) for a complete working configuration.
 
 ```hcl
 module "elasticsearch" {
-  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-elasticsearch.git?ref=1.0.1"
+  source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-elasticsearch.git?ref=1.1.0"
 
   identifier     = "my-app-search"
   enabled        = true
