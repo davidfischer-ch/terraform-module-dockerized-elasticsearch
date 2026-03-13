@@ -49,8 +49,8 @@ data_directory/
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
 | `identifier` | `string` | — | Unique name for resources (must match `^[a-z]+(-[a-z0-9]+)*$`). |
-| `enabled` | `bool` | — | Start or stop the container. |
-| `wait` | `bool` | `false` | Wait for the container to reach a healthy state after creation. |
+| `enabled` | `bool` | `true` | Start or stop the container. |
+| `wait` | `bool` | `true` | Wait for the container to reach a healthy state after creation. |
 | `image_id` | `string` | — | [Elasticsearch](https://hub.docker.com/_/elasticsearch/tags) Docker image's ID. |
 | `app_uid` | `number` | `1000` | UID of the user running the container and owning the data directories. |
 | `app_gid` | `number` | `1000` | GID of the user running the container and owning the data directories. |
