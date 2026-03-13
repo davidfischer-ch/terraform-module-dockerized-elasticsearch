@@ -11,11 +11,23 @@ resource "docker_network" "app" {
 module "elasticsearch" {
   source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-elasticsearch.git?ref=1.1.0"
 
-  identifier     = "my-app-search"
-  image_id       = docker_image.elasticsearch.image_id
-  data_directory = "/data/my-app/search"
+  identifier = "my-app-search"
+  image_id   = docker_image.elasticsearch.image_id
+
+  # Resources
 
   memory = 4096
+
+  # Networking
+
+  network_id      = docker_network.app.id
+  network_aliases = ["elasticsearch"]
+
+  # Storage
+
+  data_directory = "/data/my-app/search"
+
+  # Configuration
 
   env = {
     "discovery.type"         = "single-node"
@@ -23,7 +35,4 @@ module "elasticsearch" {
     "xpack.security.enabled" = "false"
     "ES_JAVA_OPTS"           = "-Xms2g -Xmx2g"
   }
-
-  network_id      = docker_network.app.id
-  network_aliases = ["elasticsearch"]
 }

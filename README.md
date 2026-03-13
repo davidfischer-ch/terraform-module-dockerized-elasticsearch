@@ -56,13 +56,13 @@ data_directory/
 | `privileged` | `bool` | `false` | Run the container in privileged mode. |
 | `cap_add` | `set(string)` | `[]` | Linux capabilities to add to the container. |
 | `cap_drop` | `set(string)` | `[]` | Linux capabilities to drop from the container. |
-| `data_directory` | `string` | — | Host path for persistent volumes. |
-| `env` | `map(string)` | `{}` | Environment variables for configuring the instance. |
 | `memory` | `number` | — | Memory limit for the container in MBs. |
 | `hosts` | `map(string)` | `{}` | Extra `/etc/hosts` entries for the container. |
 | `network_aliases` | `set(string)` | `[]` | Network aliases for the container. |
 | `network_id` | `string` | — | Docker network to attach to. |
 | `port` | `number` | `9200` | Elasticsearch port (changing not yet implemented). |
+| `data_directory` | `string` | — | Host path for persistent volumes. |
+| `env` | `map(string)` | `{}` | Environment variables for configuring the instance. |
 
 ## Outputs
 

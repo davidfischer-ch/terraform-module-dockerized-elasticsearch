@@ -57,21 +57,6 @@ variable "cap_drop" {
   default     = []
 }
 
-# Storage ------------------------------------------------------------------------------------------
-
-variable "data_directory" {
-  type        = string
-  description = "Where data will be persisted (volumes will be mounted as sub-directories)."
-}
-
-# Configuration ------------------------------------------------------------------------------------
-
-variable "env" {
-  type        = map(string)
-  description = "Define or overwrite environment variables for configuring the instance."
-  default     = {}
-}
-
 # Resources ----------------------------------------------------------------------------------------
 
 variable "memory" {
@@ -112,4 +97,19 @@ variable "port" {
     condition     = var.port == 9200
     error_message = "Having `port` different than 9200 is not yet implemented."
   }
+}
+
+# Storage ------------------------------------------------------------------------------------------
+
+variable "data_directory" {
+  type        = string
+  description = "Where data will be persisted (volumes will be mounted as sub-directories)."
+}
+
+# Configuration ------------------------------------------------------------------------------------
+
+variable "env" {
+  type        = map(string)
+  description = "Define or overwrite environment variables for configuring the instance."
+  default     = {}
 }
