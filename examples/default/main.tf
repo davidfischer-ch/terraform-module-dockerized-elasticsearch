@@ -12,7 +12,6 @@ module "elasticsearch" {
   source = "git::https://github.com/davidfischer-ch/terraform-module-dockerized-elasticsearch.git?ref=1.1.0"
 
   identifier     = "my-app-search"
-  enabled        = true
   image_id       = docker_image.elasticsearch.image_id
   data_directory = "/data/my-app/search"
 
