@@ -1,7 +1,9 @@
 output "host" {
-  value = docker_container.server.hostname
+  description = "Hostname of the Elasticsearch container."
+  value       = docker_container.server.hostname
 }
 
 output "port" {
-  value = var.port
+  description = "HTTP port bound by Elasticsearch."
+  value       = var.port
 }
